@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Management;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -81,6 +82,8 @@ namespace EnumerateAndUpdateUsbDevices
 
                 _dispatcher.Invoke(() =>
                 {
+                    DeviceTextBlock.Text = "";
+                    Thread.Sleep(150); // Simulate delay for better UX
                     DeviceTextBlock.Text = "Device Removed: " + deviceCaption;
                 });
             }
